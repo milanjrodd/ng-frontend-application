@@ -1,5 +1,10 @@
 // theme.ts
 import { DefaultTheme } from 'styled-components';
+import { Cinzel } from '@next/font/google';
+
+const cinzelFont = Cinzel({
+	subsets: []
+});
 
 export const defaultTheme = {
 	radius: {
@@ -11,8 +16,10 @@ export const defaultTheme = {
 	spacing: {
 		unset: 'unset',
 		'6xs': '2px',
+		'5.5xs': '6px',
 		'5xs': '4px',
 		'4xs': '8px',
+		'3.5xs': '10px',
 		'3xs': '12px',
 		'2xs': '16px',
 		xs: '20px',
@@ -27,6 +34,42 @@ export const defaultTheme = {
 		'6xl': '140px',
 		'7xl': '160px',
 		'8xl': '180px'
+	},
+	fontSize: {
+		'6xs': '10px',
+		'5xs': '12px',
+		'4xs': '14px',
+		'3xs': '16px',
+		'2xs': '18px',
+		xs: '20px',
+		s: '24px',
+		m: '32px',
+		l: '40px',
+		xl: '48px',
+		'2xl': '64px',
+		'3xl': '80px',
+		'4xl': '100px',
+		'5xl': '120px',
+		'6xl': '140px',
+		'7xl': '160px',
+		'8xl': '180px'
+	},
+	fontFamily: {
+		cinzel: cinzelFont.style.fontFamily
+	},
+	fontWeight: {
+		regular: '400',
+		medium: '500',
+		semiBold: '600',
+		bold: '700',
+		extrabold: '800',
+		black: '900'
+	},
+	breakpoints: {
+		mobile: '480px',
+		tablet: '768px',
+		desktop: '1024px',
+		largeDesktop: '1440px'
 	}
 };
 
@@ -37,6 +80,7 @@ export const darkTheme: DefaultTheme = {
 		gold: '#BEA77E',
 		white: '#FFFFF4',
 		grey: '#8E8E8E',
+		transparentGrey: 'rgba(58, 58, 58, 0.5)',
 		darkGrey: '#333030',
 		lighterBlack: '#1D1C1A',
 		black: '#151515',
