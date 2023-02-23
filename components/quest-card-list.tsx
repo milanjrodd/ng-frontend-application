@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { QuestCard } from './quest-card';
+import { Loader } from './loader';
 
 interface IQuestCardListProps {
 	quests: IQuest[] | undefined;
@@ -22,17 +23,34 @@ const StyledQuestCardListContent = styled.div`
 `;
 
 export const QuestCardList: React.FC<IQuestCardListProps> = ({ quests }) => {
-	if (!quests) return <div>Loading...</div>;
-
 	return (
 		<>
 			<StyledQuestCardList>
 				<StyledQuestCardListContent>
-					{quests.map((quest) => (
-						<QuestCard key={quest.id} quest={quest} />
-					))}
+					<QuestCardListContent quests={quests} />
 				</StyledQuestCardListContent>
 			</StyledQuestCardList>
+		</>
+	);
+};
+
+const QuestCardListContent: React.FC<IQuestCardListProps> = ({ quests }) => {
+	// If quests is undefined, show loader
+	if (!quests) {
+		return <Loader />;
+	}
+
+	// If quests is empty, show message
+	if (quests.length === 0) {
+		return <div>There are no quests yet</div>;
+	}
+
+	// If quests is not empty, show quests
+	return (
+		<>
+			{quests.map((quest) => (
+				<QuestCard key={quest.id} quest={quest} />
+			))}
 		</>
 	);
 };
