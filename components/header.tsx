@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
 const StyledHeaderContent = styled.div`
 	display: flex;
 	width: 100%;
-	max-width: 1400px;
+	max-width: ${({ theme }) => theme.breakpoints.largeDesktop};
 	padding: ${({ theme }) => theme.spacing['3.5xs']} ${({ theme }) => theme.spacing['2s']};
 	margin: 0 auto;
 `;
