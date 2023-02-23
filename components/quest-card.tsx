@@ -55,15 +55,17 @@ const StyledQuestCardParams = styled.section`
 	font-family: ${({ theme }) => theme.fontFamily.lato};
 
 	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 
 	.quest-card-param__title {
 		color: ${({ theme }) => theme.colors.gold};
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	.quest-card-param__value {
 		color: ${({ theme }) => theme.colors.white};
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 `;
 
