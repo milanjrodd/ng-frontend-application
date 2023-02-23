@@ -6,6 +6,12 @@ const GlobalStyle = createGlobalStyle<{ theme: DefaultTheme }>`
 //========================================================================================================
 * {
 	box-sizing: border-box;
+	
+	/* reset styles */
+  margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
 *::before {
 	box-sizing: border-box;
