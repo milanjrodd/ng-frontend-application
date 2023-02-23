@@ -9,6 +9,7 @@ const StyledQuestCardList = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: ${({ theme }) => theme.spacing['s']};
+	margin-top: ${({ theme }) => theme.spacing['5xl']};
 `;
 
 const StyledQuestCardListContent = styled.div`
