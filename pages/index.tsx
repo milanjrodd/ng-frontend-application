@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import Head from 'next/head';
 import axios from 'axios';
 import { QuestCardList } from '@/components/quest-card-list';
+import { MainLayout } from '@/layouts/main-layout';
 
 export default function Home() {
 	const fetchQuests = async () => {
@@ -33,19 +34,9 @@ export default function Home() {
 
 	return (
 		<>
-			<Head>
-				<title>Node Guardians</title>
-				<meta name='description' content='Node Guardians frontend' />
-			</Head>
-
-			<main>
-				<div>
-					<h1>Node Guardians</h1>
-				</div>
-				<div>
-					<QuestCardList quests={questsQuery.data} />
-				</div>
-			</main>
+			<MainLayout page='Home'>
+				<QuestCardList quests={questsQuery.data} />
+			</MainLayout>
 		</>
 	);
 }

@@ -1,0 +1,16 @@
+import styled from 'styled-components';
+
+const StyledHeader = styled.header`
+	display: flex;
+	justify-content: space-between;
+`;
+
+export const Header: React.FC<{}> = ({}) => {
+	return (
+		<>
+			<StyledHeader>
+				<h1>Node Guardians</h1>
+			</StyledHeader>
+		</>
+	);
+};
