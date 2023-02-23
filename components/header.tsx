@@ -5,11 +5,20 @@ const StyledHeader = styled.header`
 	justify-content: space-between;
 `;
 
+const StyledHeaderContent = styled.div`
+	display: flex;
+	width: 100%;
+	max-width: 1400px;
+	padding: ${({ theme }) => theme.spacing['3.5xs']} ${({ theme }) => theme.spacing['2s']};
+`;
+
 export const Header: React.FC<{}> = ({}) => {
 	return (
 		<>
 			<StyledHeader>
-				<h1>Node Guardians</h1>
+				<StyledHeaderContent>
+					<h1>Node Guardians</h1>
+				</StyledHeaderContent>
 			</StyledHeader>
 		</>
 	);

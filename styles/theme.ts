@@ -24,6 +24,7 @@ export const defaultTheme = {
 		'2xs': '16px',
 		xs: '20px',
 		s: '24px',
+		'2s': '28px',
 		m: '32px',
 		l: '40px',
 		xl: '48px',

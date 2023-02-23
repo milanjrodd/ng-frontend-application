@@ -19,6 +19,7 @@ declare module 'styled-components' {
 			'2xs': string;
 			xs: string;
 			s: string;
+			'2s': string;
 			m: string;
 			l: string;
 			xl: string;
