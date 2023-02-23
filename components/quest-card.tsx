@@ -17,8 +17,6 @@ const StyledQuestCard = styled.div`
   border-opacity: 0.5;
 
 	.quest-card__cover {
-		width: 320px;
-		height: 106.11px;
 		object-fit: cover;
     border-radius: ${({ theme }) => theme.radius.l}};
 	}
@@ -34,49 +32,69 @@ const StyledQuestCard = styled.div`
 		text-transform: capitalize;
 		color: #ffffff;
 	}
+
+	.quest-card-params {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: ${({ theme }) => theme.spacing['4xs']};
+	}
 `;
 
-const StyledQuestCardParams = styled.section`
+const StyledQuestCardParam = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: ${({ theme }) => theme.spacing['4xs']};
-`;
+	font-size: ${({ theme }) => theme.fontSize['5xs']};
+	font-weight: ${({ theme }) => theme.fontWeight.regular};
+	font-family: ${({ theme }) => theme.fontFamily.lato};
+	white-space: nowrap;
 
-const StyledQuestCardParamTitle = styled.span`
-	color: ${({ theme }) => theme.colors.gold};
-`;
-const StyledQuestCardParamValue = styled.span`
-	color: ${({ theme }) => theme.colors.white};
+	.quest-card-param__title {
+		color: ${({ theme }) => theme.colors.gold};
+	}
+
+	.quest-card-param__value {
+		color: ${({ theme }) => theme.colors.white};
+	}
 `;
 
 export const QuestCard: React.FC<IQuestCardProps> = ({ quest }) => {
 	return (
-		<>
-			<StyledQuestCard>
-				<Image className='quest-card__cover' src={quest.cover} alt={quest.title} width={320} height={106.11} />
-				<div className='quest-card__container'>
-					<h4 className='quest-card__title'>{quest.title}</h4>
-					<StyledQuestCardParams>
-						<StyledQuestCardParamTitle>Skill tree</StyledQuestCardParamTitle>
-						<StyledQuestCardParamValue>{quest.params.skillTree}</StyledQuestCardParamValue>
+		<StyledQuestCard>
+			<Image className='quest-card__cover' src={quest.cover} alt={quest.title} width={320} height={106.11} />
+			<div className='quest-card__container'>
+				<h4 className='quest-card__title'>{quest.title}</h4>
+				<section className='quest-card-params'>
+					<StyledQuestCardParam>
+						<span className='quest-card-param__title'>Skill tree</span>
+						<span className='quest-card-param__value'>{quest.params.skillTree}</span>
+					</StyledQuestCardParam>
 
-						<StyledQuestCardParamTitle>Skill</StyledQuestCardParamTitle>
-						<StyledQuestCardParamValue>{quest.params.skill}</StyledQuestCardParamValue>
+					<StyledQuestCardParam>
+						<span className='quest-card-param__title'>Difficulty</span>
+						<span className='quest-card-param__value'>{quest.params.difficulty}</span>
+					</StyledQuestCardParam>
 
-						<StyledQuestCardParamTitle>Type</StyledQuestCardParamTitle>
-						<StyledQuestCardParamValue>{quest.params.type}</StyledQuestCardParamValue>
+					<StyledQuestCardParam>
+						<span className='quest-card-param__title'>Skill</span>
+						<span className='quest-card-param__value'>{quest.params.skill}</span>
+					</StyledQuestCardParam>
 
-						<StyledQuestCardParamTitle>Difficulty</StyledQuestCardParamTitle>
-						<StyledQuestCardParamValue>{quest.params.difficulty}</StyledQuestCardParamValue>
+					<StyledQuestCardParam>
+						<span className='quest-card-param__title'>Experience</span>
+						<span className='quest-card-param__value'>{quest.params.experience}</span>
+					</StyledQuestCardParam>
 
-						<StyledQuestCardParamTitle>Experience</StyledQuestCardParamTitle>
-						<StyledQuestCardParamValue>{quest.params.experience}</StyledQuestCardParamValue>
+					<StyledQuestCardParam>
+						<span className='quest-card-param__title'>Type</span>
+						<span className='quest-card-param__value'>{quest.params.type}</span>
+					</StyledQuestCardParam>
 
-						<StyledQuestCardParamTitle>Gold</StyledQuestCardParamTitle>
-						<StyledQuestCardParamValue>{quest.params.gold}</StyledQuestCardParamValue>
-					</StyledQuestCardParams>
-				</div>
-			</StyledQuestCard>
-		</>
+					<StyledQuestCardParam>
+						<span className='quest-card-param__title'>Gold</span>
+						<span className='quest-card-param__value'>{quest.params.gold}</span>
+					</StyledQuestCardParam>
+				</section>
+			</div>
+		</StyledQuestCard>
 	);
 };
