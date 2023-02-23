@@ -22,10 +22,12 @@ const StyledQuestCard = styled.div`
 	}
 
   .quest-card__container {
-    padding: 0 ${({ theme }) => theme.spacing['5.5xs']};
     display: flex;
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing['3.5xs']};
+
+    padding: 0 ${({ theme }) => theme.spacing['5.5xs']};
+		padding-bottom: ${({ theme }) => theme.spacing['3xs']};
   }
 
 	.quest-card__title {
@@ -33,20 +35,28 @@ const StyledQuestCard = styled.div`
 		color: #ffffff;
 	}
 
-	.quest-card-params {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: ${({ theme }) => theme.spacing['4xs']};
-	}
+	
 `;
 
-const StyledQuestCardParam = styled.div`
+const StyledQuestCardParams = styled.section`
 	display: grid;
+	gap: ${({ theme }) => theme.spacing['3.5xs']} ${({ theme }) => theme.spacing['1.5xs']};
+
+	/* mobile */
 	grid-template-columns: 1fr 1fr;
+
+	/* other */
+	@media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
+		grid-template-columns: repeat(2, auto 1fr);
+	}
+
 	font-size: ${({ theme }) => theme.fontSize['5xs']};
 	font-weight: ${({ theme }) => theme.fontWeight.regular};
 	font-family: ${({ theme }) => theme.fontFamily.lato};
+
 	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 
 	.quest-card-param__title {
 		color: ${({ theme }) => theme.colors.gold};
@@ -63,37 +73,25 @@ export const QuestCard: React.FC<IQuestCardProps> = ({ quest }) => {
 			<Image className='quest-card__cover' src={quest.cover} alt={quest.title} width={320} height={106.11} />
 			<div className='quest-card__container'>
 				<h4 className='quest-card__title'>{quest.title}</h4>
-				<section className='quest-card-params'>
-					<StyledQuestCardParam>
-						<span className='quest-card-param__title'>Skill tree</span>
-						<span className='quest-card-param__value'>{quest.params.skillTree}</span>
-					</StyledQuestCardParam>
+				<StyledQuestCardParams>
+					<div className='quest-card-param__title'>Skill tree</div>
+					<div className='quest-card-param__value'>{quest.params.skillTree}</div>
 
-					<StyledQuestCardParam>
-						<span className='quest-card-param__title'>Difficulty</span>
-						<span className='quest-card-param__value'>{quest.params.difficulty}</span>
-					</StyledQuestCardParam>
+					<div className='quest-card-param__title'>Difficulty</div>
+					<div className='quest-card-param__value'>{quest.params.difficulty}</div>
 
-					<StyledQuestCardParam>
-						<span className='quest-card-param__title'>Skill</span>
-						<span className='quest-card-param__value'>{quest.params.skill}</span>
-					</StyledQuestCardParam>
+					<div className='quest-card-param__title'>Skill</div>
+					<div className='quest-card-param__value'>{quest.params.skill}</div>
 
-					<StyledQuestCardParam>
-						<span className='quest-card-param__title'>Experience</span>
-						<span className='quest-card-param__value'>{quest.params.experience}</span>
-					</StyledQuestCardParam>
+					<div className='quest-card-param__title'>Experience</div>
+					<div className='quest-card-param__value'>{quest.params.experience}</div>
 
-					<StyledQuestCardParam>
-						<span className='quest-card-param__title'>Type</span>
-						<span className='quest-card-param__value'>{quest.params.type}</span>
-					</StyledQuestCardParam>
+					<div className='quest-card-param__title'>Type</div>
+					<div className='quest-card-param__value'>{quest.params.type}</div>
 
-					<StyledQuestCardParam>
-						<span className='quest-card-param__title'>Gold</span>
-						<span className='quest-card-param__value'>{quest.params.gold}</span>
-					</StyledQuestCardParam>
-				</section>
+					<div className='quest-card-param__title'>Gold</div>
+					<div className='quest-card-param__value'>{quest.params.gold}</div>
+				</StyledQuestCardParams>
 			</div>
 		</StyledQuestCard>
 	);

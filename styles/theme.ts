@@ -27,6 +27,7 @@ export const defaultTheme = {
 		'3.5xs': '10px',
 		'3xs': '12px',
 		'2xs': '16px',
+		'1.5xs': '18px',
 		xs: '20px',
 		s: '24px',
 		'2s': '28px',
