@@ -63,6 +63,7 @@ declare module 'styled-components' {
 		};
 		fontFamily: {
 			cinzel: string;
+			lato: string;
 		};
 		fontWeight: {
 			regular: string;

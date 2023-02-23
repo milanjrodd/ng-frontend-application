@@ -1,8 +1,13 @@
 // theme.ts
 import { DefaultTheme } from 'styled-components';
-import { Cinzel } from '@next/font/google';
+import { Cinzel, Lato } from '@next/font/google';
 
 const cinzelFont = Cinzel({
+	subsets: []
+});
+
+const latoFont = Lato({
+	weight: ['400'],
 	subsets: []
 });
 
@@ -56,7 +61,8 @@ export const defaultTheme = {
 		'8xl': '180px'
 	},
 	fontFamily: {
-		cinzel: cinzelFont.style.fontFamily
+		cinzel: cinzelFont.style.fontFamily,
+		lato: latoFont.style.fontFamily
 	},
 	fontWeight: {
 		regular: '400',
