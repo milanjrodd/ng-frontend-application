@@ -7,13 +7,6 @@ interface IQuestCardListProps {
 }
 
 const StyledQuestCardList = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: ${({ theme }) => theme.spacing['s']};
-	margin-top: ${({ theme }) => theme.spacing['5xl']};
-`;
-
-const StyledQuestCardListContent = styled.div`
 	display: grid;
 	margin: 0 auto;
 	grid-template-columns: 1fr 1fr 1fr;
@@ -24,13 +17,9 @@ const StyledQuestCardListContent = styled.div`
 
 export const QuestCardList: React.FC<IQuestCardListProps> = ({ quests }) => {
 	return (
-		<>
-			<StyledQuestCardList>
-				<StyledQuestCardListContent>
-					<QuestCardListContent quests={quests} />
-				</StyledQuestCardListContent>
-			</StyledQuestCardList>
-		</>
+		<StyledQuestCardList>
+			<QuestCardListContent quests={quests} />
+		</StyledQuestCardList>
 	);
 };
 

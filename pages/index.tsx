@@ -3,6 +3,14 @@ import Head from 'next/head';
 import axios from 'axios';
 import { QuestCardList } from '@/components/quest-card-list';
 import { MainLayout } from '@/layouts/main-layout';
+import styled from 'styled-components';
+
+const StyledHome = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: ${({ theme }) => theme.spacing['s']};
+	margin-top: ${({ theme }) => theme.spacing['5xl']};
+`;
 
 export default function Home() {
 	const fetchQuests = async () => {
@@ -35,7 +43,9 @@ export default function Home() {
 	return (
 		<>
 			<MainLayout page='Home'>
-				<QuestCardList quests={questsQuery.data} />
+				<StyledHome>
+					<QuestCardList quests={questsQuery.data} />
+				</StyledHome>
 			</MainLayout>
 		</>
 	);
