@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import { QuestCardList } from '@/components/quest-card-list';
 import { MainLayout } from '@/layouts/main-layout';
 import styled from 'styled-components';
-import { IQuestResponse, IQuest } from '@/types/quest';
+import { getQuests } from '@/services/api/quests';
 
 const StyledHome = styled.div`
 	display: flex;
@@ -18,32 +17,7 @@ const StyledHome = styled.div`
 `;
 
 export default function Home() {
-	const fetchQuests = async () => {
-		try {
-			const res = await axios.get<IQuestResponse[]>('/api/quests');
-
-			// Remap data response to the IQuest interface
-			const quests: IQuest[] = res.data.map((quest) => ({
-				id: quest.id,
-				title: quest.title,
-				cover: quest.cover,
-				params: {
-					skillTree: quest.skillTree,
-					skill: quest.skill,
-					difficulty: quest.difficulty,
-					experience: quest.experience,
-					gold: quest.gold,
-					type: quest.type
-				}
-			}));
-
-			return quests;
-		} catch (error) {
-			throw new Error('Failed to fetch quests');
-		}
-	};
-
-	const questsQuery = useQuery({ queryKey: ['quests'], queryFn: fetchQuests });
+	const questsQuery = useQuery({ queryKey: ['quests'], queryFn: getQuests });
 
 	return (
 		<>

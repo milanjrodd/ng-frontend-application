@@ -1,4 +1,4 @@
-export interface IQuestResponse {
+export interface IQuestsResponse {
 	id: string;
 	skillTree: string; // 'home-decoration' => 'home decoration'
 	skill: string;
@@ -8,6 +8,20 @@ export interface IQuestResponse {
 	gold: number;
 	type: string;
 	cover: string;
+}
+
+export interface IQuestByIdResponse {
+	id: number;
+	skillTree: string;
+	skill: string;
+	title: string;
+	difficulty: number;
+	experience: number;
+	gold: number;
+	type: string;
+	cover: string;
+	description: string;
+	rewards: { experience: number; gold: number };
 }
 
 export interface IQuest {
