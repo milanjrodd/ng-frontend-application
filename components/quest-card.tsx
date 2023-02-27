@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
+import { DifficultyBar } from './difficulty-bar';
 
 interface IQuestCardProps {
 	quest: IQuest;
@@ -80,7 +81,9 @@ export const QuestCard: React.FC<IQuestCardProps> = ({ quest }) => {
 					<div className='quest-card-param__value'>{quest.params.skillTree}</div>
 
 					<div className='quest-card-param__title'>Difficulty</div>
-					<div className='quest-card-param__value'>{quest.params.difficulty}</div>
+					<div className='quest-card-param__value'>
+						<DifficultyBar value={quest.params.difficulty} />
+					</div>
 
 					<div className='quest-card-param__title'>Skill</div>
 					<div className='quest-card-param__value'>{quest.params.skill}</div>
