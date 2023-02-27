@@ -68,6 +68,10 @@ const StyledQuestCardParams = styled.section`
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
+
+	.quest-card-param__value-link {
+		color: ${({ theme }) => theme.colors.blue};
+	}
 `;
 
 export const QuestCard: React.FC<IQuestCardProps> = ({ quest }) => {
@@ -77,25 +81,36 @@ export const QuestCard: React.FC<IQuestCardProps> = ({ quest }) => {
 			<div className='quest-card__container'>
 				<h4 className='quest-card__title'>{quest.title}</h4>
 				<StyledQuestCardParams>
+					{/* Is it link to open skill tree view? Use link instead? */}
 					<div className='quest-card-param__title'>Skill tree</div>
-					<div className='quest-card-param__value'>{quest.params.skillTree}</div>
+					<div className='quest-card-param__value quest-card-param__value-link' title={quest.params.skillTree}>
+						{quest.params.skillTree}
+					</div>
 
 					<div className='quest-card-param__title'>Difficulty</div>
-					<div className='quest-card-param__value'>
+					<div className='quest-card-param__value' title={quest.params.difficulty.toString()}>
 						<DifficultyBar value={quest.params.difficulty} />
 					</div>
 
 					<div className='quest-card-param__title'>Skill</div>
-					<div className='quest-card-param__value'>{quest.params.skill}</div>
+					<div className='quest-card-param__value' title={quest.params.skill}>
+						{quest.params.skill}
+					</div>
 
 					<div className='quest-card-param__title'>Experience</div>
-					<div className='quest-card-param__value'>{quest.params.experience}</div>
+					<div className='quest-card-param__value' title={quest.params.experience.toString()}>
+						{quest.params.experience}
+					</div>
 
 					<div className='quest-card-param__title'>Type</div>
-					<div className='quest-card-param__value'>{quest.params.type}</div>
+					<div className='quest-card-param__value' title={quest.params.type}>
+						{quest.params.type}
+					</div>
 
 					<div className='quest-card-param__title'>Gold</div>
-					<div className='quest-card-param__value'>{quest.params.gold}</div>
+					<div className='quest-card-param__value' title={quest.params.gold.toString()}>
+						{quest.params.gold}
+					</div>
 				</StyledQuestCardParams>
 			</div>
 		</StyledQuestCard>
