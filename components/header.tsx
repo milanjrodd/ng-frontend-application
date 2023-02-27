@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import Image from 'next/image';
 
 const StyledHeader = styled.header`
 	display: flex;
@@ -17,7 +18,7 @@ export const Header: React.FC<{}> = ({}) => {
 	return (
 		<StyledHeader>
 			<StyledHeaderContent>
-				<h1>Node Guardians</h1>
+				<Image src='/logo.svg' alt='Node Guardians' width={319} height={34} />
 			</StyledHeaderContent>
 		</StyledHeader>
 	);
