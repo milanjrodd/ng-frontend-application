@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { DifficultyBar } from './difficulty-bar';
+import { IQuest } from '@/types/quest';
 
 interface IQuestCardProps {
 	quest: IQuest;

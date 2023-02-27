@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { QuestCard } from './quest-card';
 import { Loader } from './loader';
+import { IQuest } from '@/types/quest';
 
 interface IQuestCardListProps {
 	quests: IQuest[] | undefined;

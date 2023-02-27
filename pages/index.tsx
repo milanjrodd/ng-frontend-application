@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import Head from 'next/head';
 import axios from 'axios';
 import { QuestCardList } from '@/components/quest-card-list';
 import { MainLayout } from '@/layouts/main-layout';
 import styled from 'styled-components';
+import { IQuestResponse, IQuest } from '@/types/quest';
 
 const StyledHome = styled.div`
 	display: flex;
