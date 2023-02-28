@@ -28,13 +28,14 @@ const StyledQuestCard = styled.div`
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing['3.5xs']};
 
-    padding: 0 ${({ theme }) => theme.spacing['5.5xs']};
+    padding: ${({ theme }) => theme.spacing['5xs']} ${({ theme }) => theme.spacing['5.5xs']};
 		padding-bottom: ${({ theme }) => theme.spacing['3xs']};
   }
 
 	.quest-card__title {
 		text-transform: capitalize;
 		color: #ffffff;
+
 	}
 
 	

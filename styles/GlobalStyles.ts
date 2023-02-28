@@ -35,7 +35,7 @@ h4 {
 	font-size: ${({ theme }) => theme.fontSize['4xs']};
 	line-height: 19px;
 	
-	margin: ${({ theme }) => theme.spacing['6xs']} 0;
+	margin: 0;
 }
 
 
