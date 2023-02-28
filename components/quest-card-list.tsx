@@ -10,10 +10,18 @@ interface IQuestCardListProps {
 const StyledQuestCardList = styled.div`
 	display: grid;
 	margin: 0 auto;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr;
 	grid-auto-rows: 1fr;
 	gap: ${({ theme }) => theme.spacing['s']};
 	width: min-content;
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 `;
 
 export const QuestCardList: React.FC<IQuestCardListProps> = ({ quests }) => {
