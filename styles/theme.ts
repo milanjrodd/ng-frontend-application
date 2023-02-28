@@ -21,8 +21,9 @@ export const defaultTheme = {
 	spacing: {
 		unset: 'unset',
 		'6xs': '2px',
+		'5.5xs': '3px',
 		'5xs': '4px',
-		'5.5xs': '6px',
+		'4.5xs': '6px',
 		'4xs': '8px',
 		'3.5xs': '10px',
 		'3xs': '12px',

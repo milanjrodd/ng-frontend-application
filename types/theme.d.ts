@@ -13,6 +13,7 @@ declare module 'styled-components' {
 			'6xs': string;
 			'5.5xs': string;
 			'5xs': string;
+			'4.5xs': string;
 			'4xs': string;
 			'3.5xs': string;
 			'3xs': string;

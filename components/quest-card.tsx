@@ -13,7 +13,7 @@ const StyledQuestCard = styled.div`
 	display: flex;
 	flex-direction: column;
   gap: ${({ theme }) => theme.spacing['6xs']};
-  padding: ${({ theme }) => theme.spacing['5.5xs']};
+  padding: ${({ theme }) => theme.spacing['4.5xs']};
   background-color: ${({ theme }) => theme.colors.lighterBlack};
   border-radius: ${({ theme }) => theme.radius.xl};
   border: 1px solid ${({ theme }) => theme.colors.transparentGrey};
@@ -30,7 +30,7 @@ const StyledQuestCard = styled.div`
     flex-direction: column;
     gap: ${({ theme }) => theme.spacing['3.5xs']};
 
-    padding: ${({ theme }) => theme.spacing['5xs']} ${({ theme }) => theme.spacing['5.5xs']};
+    padding: ${({ theme }) => theme.spacing['5xs']} ${({ theme }) => theme.spacing['4.5xs']};
 		padding-bottom: ${({ theme }) => theme.spacing['3xs']};
   }
 
