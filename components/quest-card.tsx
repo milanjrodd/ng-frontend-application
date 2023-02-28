@@ -3,6 +3,7 @@ import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { DifficultyBar } from './difficulty-bar';
 import { IQuest } from '@/types/quest';
+import Link from 'next/link';
 
 interface IQuestCardProps {
 	quest: IQuest;
@@ -17,6 +18,7 @@ const StyledQuestCard = styled.div`
   border-radius: ${({ theme }) => theme.radius.xl};
   border: 1px solid ${({ theme }) => theme.colors.transparentGrey};
   border-opacity: 0.5;
+	position: relative;
 
 	.quest-card__cover {
 		object-fit: cover;
@@ -35,10 +37,16 @@ const StyledQuestCard = styled.div`
 	.quest-card__title {
 		text-transform: capitalize;
 		color: #ffffff;
-
 	}
 
-	
+	.quest-card__link {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
 `;
 
 const StyledQuestCardParams = styled.section`
@@ -69,25 +77,32 @@ const StyledQuestCardParams = styled.section`
 		color: ${({ theme }) => theme.colors.white};
 		overflow: hidden;
 		text-overflow: ellipsis;
+		z-index: 20;
 	}
 
 	.quest-card-param__value-link {
 		color: ${({ theme }) => theme.colors.blue};
+		text-decoration: none;
 	}
 `;
 
 export const QuestCard: React.FC<IQuestCardProps> = ({ quest }) => {
 	return (
 		<StyledQuestCard>
+			<Link href={`/quest/${quest.id}`} className='quest-card__link' />
 			<Image className='quest-card__cover' src={quest.cover} alt={quest.title} width={320} height={106.11} />
 			<div className='quest-card__container'>
 				<h4 className='quest-card__title'>{quest.title}</h4>
 				<StyledQuestCardParams>
 					{/* Is it link to open skill tree view? Use link instead? */}
 					<div className='quest-card-param__title'>Skill tree</div>
-					<div className='quest-card-param__value quest-card-param__value-link' title={quest.params.skillTree}>
+					<Link
+						href='/'
+						className='quest-card-param__value quest-card-param__value-link'
+						title={quest.params.skillTree}
+					>
 						{quest.params.skillTree}
-					</div>
+					</Link>
 
 					<div className='quest-card-param__title'>Difficulty</div>
 					<div className='quest-card-param__value' title={quest.params.difficulty.toString()}>
