@@ -220,7 +220,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 	const { id } = params;
 
 	const quest = await getQuestById(id as string);
-	console.log(quest);
 
 	return {
 		props: {
